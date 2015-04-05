@@ -1,7 +1,7 @@
-﻿using System;
-using NinjaTrader.Data;
+﻿using NinjaTrader.Data;
 using Robot.DataGateway;
 using Robot.TransportStructures;
+using System;
 
 namespace Robot.Accumulator
 {

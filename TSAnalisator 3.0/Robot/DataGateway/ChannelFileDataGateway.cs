@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Robot.TransportStructures;
+using System;
 using System.IO;
 using System.Text;
-using Robot.TransportStructures;
 
 namespace Robot.DataGateway
 {

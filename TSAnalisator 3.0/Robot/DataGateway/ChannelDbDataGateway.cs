@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Npgsql;
 using Robot.TransportStructures;
-using Npgsql;
-using Debugging;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace Robot.DataGateway
