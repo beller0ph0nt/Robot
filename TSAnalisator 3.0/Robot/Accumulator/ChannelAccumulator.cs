@@ -38,8 +38,9 @@ namespace Robot.Accumulator
                     print.Price = e.Price;
                     print.Time = e.Time;
                     print.Volume = e.Volume;
-                    print.CalcPrintType((_bid == 0) ? e.MarketData.Bid.Price : _bid,
-                                        (_ask == 0) ? e.MarketData.Ask.Price : _ask);
+                    print.CalcPrintType(_bid, _ask);
+                    //print.CalcPrintType((_bid == 0) ? e.MarketData.Bid.Price : _bid,
+                    //                    (_ask == 0) ? e.MarketData.Ask.Price : _ask);
 
                     if (_impulse.IsPrintInImpulse(print))
                         _impulse.Push(print);
