@@ -36,6 +36,9 @@
     </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Debugging">
+      <HintPath>..\..\..\Debuging\Debugging\Debugging\bin\Release\Debugging.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\packages\Npgsql.2.2.4.3\lib\net35\Mono.Security.dll</HintPath>
     </Reference>

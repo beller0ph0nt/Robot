@@ -3,6 +3,7 @@ using Robot.TransportStructures;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Debugging;
 
 namespace Robot.DataGateway
 {
@@ -35,6 +36,8 @@ namespace Robot.DataGateway
 
         public void Write(object package)
         {
+            Log.Write("ChannelDbDataGateway.Write Begin");
+
             if (package is Channel)
             {
                 IChannel channel = package as Channel;
@@ -119,6 +122,8 @@ namespace Robot.DataGateway
             }
             else
                 throw new Exception("Неизвестный тип данных");
+
+            Log.Write("ChannelDbDataGateway.Write End");
         }
 
         public void Read(object package)

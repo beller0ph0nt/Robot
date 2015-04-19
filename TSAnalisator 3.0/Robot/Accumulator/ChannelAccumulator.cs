@@ -2,6 +2,7 @@
 using Robot.DataGateway;
 using Robot.TransportStructures;
 using System;
+using Debugging;
 
 namespace Robot.Accumulator
 {
@@ -26,6 +27,8 @@ namespace Robot.Accumulator
 
         public void Push(MarketDataEventArgs e)
         {
+            Log.Write("ChannelAccumulator.Push Begin");
+
             try
             {
                 if (e.MarketDataType == MarketDataType.Last)
@@ -69,10 +72,9 @@ namespace Robot.Accumulator
                 else if (e.MarketDataType == MarketDataType.Ask)
                     _ask = e.Price;
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            catch (Exception ex) { throw ex; }
+
+            Log.Write("ChannelAccumulator.Push End");
         }
     }
 }
