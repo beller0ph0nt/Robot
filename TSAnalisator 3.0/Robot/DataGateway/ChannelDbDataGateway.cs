@@ -42,12 +42,13 @@ namespace Robot.DataGateway
             {
                 IChannel channel = package as Channel;
 
+                Log.Write("Creating sql connection...");
                 using (NpgsqlConnection connection = new NpgsqlConnection(_connectionString))
                 {
+                    Log.Write("Creating sql command...");
                     using (NpgsqlCommand command = new NpgsqlCommand())
                     {
                         command.Connection = connection;
-                        command.Transaction = connection.BeginTransaction();
                         command.CommandText = "insert into robot.t_channels(r_type) values (" + (int)channel.Type + ");";
 
                         IBlock block;
@@ -114,9 +115,10 @@ namespace Robot.DataGateway
                         }
 
                         connection.Open();
-                        command.Prepare();
+
+                        Log.Write("Execution sql query...");
                         command.ExecuteNonQuery();
-                        command.Transaction.Commit();
+                        Log.Write("Sql query executed...");
                     }
                 }
             }
