@@ -25,8 +25,6 @@ namespace Robot
 
         public void Save(Object obj)
         {
-            Log.Write("ChannelRobot.Save Begin");
-
             if (obj is MarketDataEventArgs)
             {
                 MarketDataEventArgs marketData = obj as MarketDataEventArgs;
@@ -43,8 +41,6 @@ namespace Robot
             }
             else
                 throw new Exception("Некорректный тип данных");
-
-            Log.Write("ChannelRobot.Save End");
         }
 
         public void Work(Object obj)

@@ -49,7 +49,13 @@ namespace Robot.DataGateway
                     using (NpgsqlCommand command = new NpgsqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "insert into robot.t_channels(r_type) values (" + (int)channel.Type + ");";
+                        command.CommandText = "insert into robot.t_channels"+
+                            "(r_upper_limit_k, r_upper_limit_b, r_lower_limit_k, r_lower_limit_b, r_type)"+
+                            "values (" + channel.UpperLimit.K.ToString("F", _culture) + ", " +
+                                         channel.UpperLimit.B.ToString("F", _culture) + ", " +
+                                         channel.LowerLimit.K.ToString("F", _culture) + ", " +
+                                         channel.LowerLimit.B.ToString("F", _culture) + ", " +
+                                         (int)channel.Type + ");";
 
                         IBlock block;
                         List<IBlock> blocks = channel.Blocks;
